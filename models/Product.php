@@ -11,7 +11,7 @@ class Product extends BaseModel
     public function all()
     {
         //Câu lệnh sql
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id";
         //Chuẩn bị thực thi
         $stmt = $this->conn->prepare($sql);
         //Thực thi
@@ -22,7 +22,8 @@ class Product extends BaseModel
     //Thêm mới sản phẩm
     public function create($data)
     {
-        $sql = "INSERT INTO products(name, image, price, quantity, description, category_id) VALUES(:name, :image, :price, :quantity, :description, :category_id)";
+        $sql = "INSERT INTO products(name, image, price, quantity, status, description, category_id) VALUES(:name, :image, :price, :quantity, :status, :description, :category_id)";
+        echo $sql;
         //Chuẩn bị thực thi
         $stmt = $this->conn->prepare($sql);
         //Thực thi

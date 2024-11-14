@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/env.php";
 require_once __DIR__ . "/common/function.php";
 require_once __DIR__ . "/models/BaseModel.php";
 require_once __DIR__ . "/models/Category.php";
@@ -27,7 +28,7 @@ $data = [
     'category_id' => 1
 ];
 $product = new Product;
-$product->create($data);
+// $product->create($data);
 
 match ($ctl) {
     '', 'home' => (new HomeController)->index(),
