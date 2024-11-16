@@ -27,6 +27,9 @@
                     <td><?= $pro['quantity'] ?></td>
                     <td><?= $pro['status'] ? "Đang kinh doanh" : "Ngừng kinh doanh" ?></td>
                     <td><?= $pro['cate_name'] ?></td>
+                    <td>
+                        <a href="<?= ADMIN_URL . '?ctl=editsp&id=' . $pro['id'] ?>" class="btn btn-primary">Sửa</a>
+                    </td>
                 </tr>
             <?php endforeach ?>
         </tbody>

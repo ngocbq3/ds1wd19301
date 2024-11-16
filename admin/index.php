@@ -17,5 +17,7 @@ match ($ctl) {
     "listsp" => (new AdminProductController)->index(),
     'addsp' => (new AdminProductController)->create(),
     'storesp' => (new AdminProductController)->store(),
+    'editsp' => (new AdminProductController)->edit(),
+    'updatesp' => (new AdminProductController)->update(),
     default => view('404.404'),
 };
