@@ -5,8 +5,11 @@ class AdminProductController
     //hiển thị danh sách sản phẩm
     public function index()
     {
+        //Lấy session thông báo
+        $message = $_SESSION['message'] ?? '';
+        unset($_SESSION['message']); //xóa session
         $products = (new Product)->all();
-        return view('admin.products.list', ['products' => $products]);
+        return view('admin.products.list', compact('products', 'message'));
     }
 
     //Hiển thị form thêm
@@ -71,6 +74,16 @@ class AdminProductController
         $product->update($data['id'], $data);
         //Quay về trang edit
         header("location: " . ADMIN_URL . "?ctl=editsp&id=" . $data['id']);
+        die;
+    }
+
+    //Xóa dữ liệu
+    public function delete()
+    {
+        $id = $_GET['id'];
+        (new Product)->delete($id);
+        $_SESSION['message'] = "Xóa dữ liệu thành công";
+        header("location: " . ADMIN_URL . "?ctl=listsp");
         die;
     }
 }

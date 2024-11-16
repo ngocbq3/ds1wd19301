@@ -19,6 +19,37 @@ class Product extends BaseModel
         //trả về dữ liệu lấy được
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    //Lấy sản phẩm theo loại
+    public function listProductInCategory($id)
+    {
+        $sql = "SELECT p.*, c.cate_name FROM products p JOIN categories c ON p.category_id=c.id WHERE p.id=:id ";
+        //Chuẩn bị thực thi
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute(['id' => $id]);
+        //trả về dữ liệu lấy được
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    //Lọc sản phẩm theo thú cưng hoặc sản phẩm
+    public function listPets()
+    {
+        $sql = "SELECT p.*, c.cate_name, type FROM products p JOIN categories c ON p.category_id=c.id WHERE type=1 LIMIT 4";
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //trả về dữ liệu lấy được
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    //Lọc sản phẩm không phải thú cưng
+    public function listOtherProduct()
+    {
+        $sql = "SELECT p.*, c.cate_name, type FROM products p JOIN categories c ON p.category_id=c.id WHERE type=0";
+        $stmt = $this->conn->prepare($sql);
+        //Thực thi
+        $stmt->execute();
+        //trả về dữ liệu lấy được
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     //Thêm mới sản phẩm
     public function create($data)
     {

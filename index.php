@@ -19,15 +19,15 @@ $ctl = $_GET['ctl'] ?? '';
 // $cate->delete(3);
 // var_dump($cate->show(1));
 //Thêm sản phẩm
-$data = [
-    'name' => 'Thức ăn Royal Canin cho chó',
-    'image' => '',
-    'price' => 50000,
-    'quantity' => 10,
-    'description' => 'Thức ăn Royal Canin cho chó',
-    'category_id' => 1
-];
-$product = new Product;
+// $data = [
+//     'name' => 'Thức ăn Royal Canin cho chó',
+//     'image' => '',
+//     'price' => 50000,
+//     'quantity' => 10,
+//     'description' => 'Thức ăn Royal Canin cho chó',
+//     'category_id' => 1
+// ];
+// $product = new Product;
 // $product->create($data);
 
 match ($ctl) {

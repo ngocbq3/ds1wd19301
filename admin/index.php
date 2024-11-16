@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "/../env.php";
 require_once __DIR__ . "/../common/function.php";
 
@@ -19,5 +20,6 @@ match ($ctl) {
     'storesp' => (new AdminProductController)->store(),
     'editsp' => (new AdminProductController)->edit(),
     'updatesp' => (new AdminProductController)->update(),
+    'deletesp' => (new AdminProductController)->delete(),
     default => view('404.404'),
 };
