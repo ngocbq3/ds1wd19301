@@ -23,6 +23,9 @@
                             <a class="nav-link active" aria-current="page" href="<?= ADMIN_URL ?>">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="<?= ADMIN_URL . '?ctl=listdm' ?>">Danh mục</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="<?= ADMIN_URL . '?ctl=listsp' ?>">Sản phẩm</a>
                         </li>
 
