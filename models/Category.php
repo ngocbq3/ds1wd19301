@@ -39,9 +39,9 @@ class Category extends BaseModel
     //Chi tiết 1 bản ghi
     public function show($id)
     {
-        $sql = "SELECT * FROM categories";
+        $sql = "SELECT * FROM categories WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+        $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

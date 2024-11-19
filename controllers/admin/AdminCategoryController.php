@@ -1,5 +1,4 @@
 <?php
-
 class AdminCategoryController
 {
     public function index()

@@ -10,6 +10,12 @@ class HomeController
 
         //Lấy sản phẩm khác
         $list_products = $product->listOtherProduct();
-        return view('clients.home', compact('pets', 'list_products'));
+
+        //Lây ra danh mục
+        $categories = (new Category)->list();
+        return view(
+            'clients.home',
+            compact('pets', 'list_products', 'categories')
+        );
     }
 }
