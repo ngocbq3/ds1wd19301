@@ -40,7 +40,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="<?= ROOT_URL . '?ctl=view-cart' ?>">Giỏ hàng (<?= $_SESSION['totalQuantity'] ?? '0' ?>)</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

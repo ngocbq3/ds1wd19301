@@ -35,6 +35,9 @@ class ProductController
         $title = $product['name'] ?? '';
         $categories = (new Category)->list();
 
+        //Lưu lại đường dẫn vào session
+        $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+
         return view(
             'clients.products.detail',
             compact('product', 'categories', 'title')
